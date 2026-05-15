@@ -39,7 +39,7 @@ npm pack tree-sitter-nsis --pack-destination "$TMPDIR" > /dev/null 2>&1
 tar xzf "$TMPDIR/tree-sitter-nsis-$VERSION.tgz" -C "$TMPDIR"
 
 cp "$TMPDIR/package/queries/"*.scm languages/nsis/
-sed -i '' "s/^rev = .*/rev = \\"$REV\\"/" extension.toml
+sed "s/^rev = .*/rev = \\"$REV\\"/" extension.toml > extension.toml.tmp && mv extension.toml.tmp extension.toml
 
 echo "Synced tree-sitter-nsis v$VERSION (rev $REV)"
 """
