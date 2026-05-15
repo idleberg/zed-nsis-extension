@@ -1,0 +1,4 @@
+target/
+grammars/nsis/
+grammars/nsis.wasm
+crates/ardent-lsp/

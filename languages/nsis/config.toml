@@ -1,0 +1,4 @@
+name = "NSIS"
+grammar = "nsis"
+path_suffixes = ["nsi", "nsh"]
+line_comments = ["# ", "; "]

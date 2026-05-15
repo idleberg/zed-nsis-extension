@@ -1,0 +1,45 @@
+[tools]
+lefthook = "latest"
+node = "24"
+rust = "latest"
+
+[tasks.build]
+description = "Build the Zed extension and nsis-lsp"
+depends = ["sync"]
+run = """
+set -e
+rustup target add wasm32-wasip1 2>/dev/null
+cargo build --release --target wasm32-wasip1
+cp target/wasm32-wasip1/release/zed_nsis.wasm extension.wasm
+echo "Built extension.wasm and nsis-lsp"
+"""
+
+[tasks.fmt]
+description = "Format Rust code"
+run = "cargo fmt"
+
+[tasks."fmt:check"]
+description = "Check Rust code formatting"
+run = "cargo fmt --check"
+
+[tasks.lint]
+description = "Lint Rust code with Clippy"
+run = "cargo clippy -- --deny warnings"
+
+[tasks.sync]
+description = "Sync tree-sitter-nsis queries and rev from npm"
+run = """
+set -e
+VERSION=$(npm view tree-sitter-nsis version)
+REV=$(npm view tree-sitter-nsis gitHead)
+TMPDIR=$(mktemp -d)
+trap "rm -rf $TMPDIR" EXIT
+
+npm pack tree-sitter-nsis --pack-destination "$TMPDIR" > /dev/null 2>&1
+tar xzf "$TMPDIR/tree-sitter-nsis-$VERSION.tgz" -C "$TMPDIR"
+
+cp "$TMPDIR/package/queries/"*.scm languages/nsis/
+sed -i '' "s/^rev = .*/rev = \\"$REV\\"/" extension.toml
+
+echo "Synced tree-sitter-nsis v$VERSION (rev $REV)"
+"""
