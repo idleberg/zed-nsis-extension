@@ -1,6 +1,6 @@
 # zed-nsis-extension
 
-> NSIS language support and formatting for the [Zed](https://zed.dev) editor.
+> NSIS language support for the [Zed](https://zed.dev) editor.
 
 ![GitHub Release](https://img.shields.io/github/v/release/idleberg/zed-nsis-extension?style=for-the-badge)
 [![CI](https://img.shields.io/github/actions/workflow/status/idleberg/ardent/ci.yml?style=for-the-badge)](https://github.com/idleberg/ardent/actions)
