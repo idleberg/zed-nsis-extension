@@ -5,6 +5,8 @@
 ![GitHub Release](https://img.shields.io/github/v/release/idleberg/zed-nsis-extension?style=for-the-badge)
 [![CI](https://img.shields.io/github/actions/workflow/status/idleberg/ardent/ci.yml?style=for-the-badge)](https://github.com/idleberg/ardent/actions)
 
+![Screenshot](https://raw.githubusercontent.com/idleberg/zed-extension-nsis/main/resources/screenshot.png)
+
 ## Features
 
 - Syntax highlighting of NSIS files
