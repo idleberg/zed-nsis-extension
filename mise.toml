@@ -14,11 +14,15 @@ cp target/wasm32-wasip1/release/zed_nsis.wasm extension.wasm
 echo "Built extension.wasm and nsis-lsp"
 """
 
-[tasks.fmt]
+[tasks.checks]
+description = "Run all checks (formatting, linting)"
+depends = ["format:check", "lint"]
+
+[tasks.format]
 description = "Format Rust code"
 run = "cargo fmt"
 
-[tasks."fmt:check"]
+[tasks."format:check"]
 description = "Check Rust code formatting"
 run = "cargo fmt --check"
 
