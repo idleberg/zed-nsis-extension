@@ -12,6 +12,7 @@
 - Syntax highlighting of NSIS files
 - Formatting via the `ardent` formatter
 - Code completions
+- Diagnostics mode
 - Go to definition
 
 ## Installation
