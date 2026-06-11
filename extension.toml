@@ -13,7 +13,7 @@ version = "0.1.0"
 
 [grammars.nsis]
 repository = "https://github.com/idleberg/tree-sitter-nsis"
-rev = "4b6c1260fcf7d2e1ce64164085d2bdb4e3e65ed8"
+rev = "aff788a88ae08010ce44931e85b755f97aeb2f87"
 
 [language_servers.nsis-lsp]
 name = "NSIS LSP"
