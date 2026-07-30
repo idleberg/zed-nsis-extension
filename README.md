@@ -43,6 +43,12 @@ Once published, you can install from the Zed extension registry:
 3. Search for "zed: extensions"
 4. Search for "NSIS" and install
 
+## Language Server
+
+This extension uses [nsis-lsp](https://crates.io/crates/nsis-lsp) for diagnostics, completions and go-to-definition. If `nsis-lsp` is already on your `$PATH`, that binary is used as-is. Otherwise, the extension downloads the latest release from GitHub automatically.
+
+Once downloaded, the binary is reused for the rest of the Zed session — it only checks for a newer release the next time the extension is loaded (e.g. after restarting Zed or reloading the extension).
+
 ## Configuration
 
 Add the following to your Zed `settings.json` to enable format on save:
